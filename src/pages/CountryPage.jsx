@@ -20,6 +20,19 @@ function CountryPage() {
         console.log("countries", countries.json())}
     
 displayAllCountries()
+
+async function displayFiveCountries() {
+      const response = await fetch(URL);
+      const countries = await response.json();
+            
+          for (let i = 0; i < 5; i++) {
+              console.log("Country", i+1, ":", countries[i].name.common);
+         }
+}
+      displayFiveCountries()
+
+
+
   return (
 
 

@@ -1,8 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import AboutPage from './pages/AboutPage';
-import HomePage from './pages/HomePage';
-import CountryPage from './pages/CountryPage';
+import HomePage from './pages/HomePage'
 import GalleryPge from './pages/GalleryPge'
 
 function App() {
