@@ -1,35 +1,31 @@
 import React from 'react'
 import NavbarComponent from '../components/NavbarComponent'
+import axios from 'axios'
 
 function CountryPage() {
 
     const URL = "https://restcountries.com/v3.1/all"
     console.log(URL)
 
-    // function displayCountries() {
-    //     let allCountries = fetch (URL)
-    //     .then((response) => 
-    //     {console.log('country', response.json())
-    // })
-    // }
- 
-    // displayCountries()
+// let countriesBox = []
 
-    async function displayAllCountries() {
-        const countries = await fetch(URL)
-        console.log("countries", countries.json())}
+async function displayAllCountries() {
+const countries= await axios.get(URL)
+
+const countriesBox = countries.data
+const slicedata = countriesBox.slice(0 , 5)
+
+console.log('yes', slicedata.name)
+slicedata.map(country => {
+    console.log('yes', country.name.common)
     
+})
+return countriesBox
+
+}
+
 displayAllCountries()
 
-async function displayFiveCountries() {
-      const response = await fetch(URL);
-      const countries = await response.json();
-            
-          for (let i = 0; i < 5; i++) {
-              console.log("Country", i+1, ":", countries[i].name.common);
-         }
-}
-      displayFiveCountries()
 
 
 
@@ -42,6 +38,6 @@ async function displayFiveCountries() {
     </div>
 
   )
+  
   }
-
 export default CountryPage
